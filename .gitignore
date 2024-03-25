@@ -1,1 +1,5 @@
-.DS_store
+# Ignore Zola's public directory
+/public
+
+# Ignore system files
+.DS_Store
