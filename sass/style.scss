@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Helvetica&display=swap');
+@import 'code.scss';
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Helvetica', sans-serif;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+a:visited {
+    color: inherit;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    position: sticky;
+}
+
+#navbar {
+    padding: .625rem 0 0 0;
+    display: flex;
+    flex-direction: row;
+    gap: .25rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: flex-end
+}

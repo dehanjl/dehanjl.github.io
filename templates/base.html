@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>dehan-jl</title>
+    <link rel="stylesheet" href="{{ get_url(path='style.css') | safe }}">
+
+</head>
+
+<body>
+    <header id="header">
+        <nav id="navbar">
+            <a href="{{ get_url(path='/') | safe }}">Home</a>
+            <a href="{{ get_url(path='@/about.md') | safe }}">About Me</a>
+            <a href="{{ get_url(path='@/resume.md') | safe }}">Resume</a>
+            <a href="{{ get_url(path='@/blog/_index.md') | safe }}">Blog</a>
+            <a href="{{ get_url(path='@/contact.md') | safe }}">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer id="footer">
+        <p>Copyright © Dehan J. Lamprecht 2024.</p>
+        <p>Powered by <a href="https://www.getzola.org">Zola</a></p>
+    </footer>
+</body>
+
+</html>
