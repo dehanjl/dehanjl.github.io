@@ -4,14 +4,9 @@
 <h1 class="title">
     {{ section.title }}
 </h1>
-<p>Coming Soon...</p>
-<ul>
-    <!-- If you are using pagination, section.pages will be empty. You need to use the paginator object -->
-    {% for page in section.pages %}
-    <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-    {% endfor %}
-</ul>
-{{ section.content | safe }}
-
-
+<div class="center typing">
+    <h1>
+        Coming Soon...
+    </h1>
+</div>
 {% endblock content %}
