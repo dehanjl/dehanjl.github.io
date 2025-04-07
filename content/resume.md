@@ -9,7 +9,21 @@ _A PDF version of this is available on request._
 **Computer Engineer** - _For more about me, please see my [About](@/about.md) section or [Contact Me](@/contact.md)._
 
 ## Experience
-### Software Engineer
+### Senior Software Engineer (AI Platforms)
+**BMW ZA IT Hub** 
+
+<i class="fa-solid fa-location-dot"></i> Pretoria, South Africa 
+<i class="fa-solid fa-calendar"></i> Aug 2024 – Present
+- Key member of the development team for BMW Group’s AI Assistant, a generative AI solution leveraging
+LLMs.
+- Collaborating closely with international partners to define system architecture and streamline development
+processes.
+- Spearheading the project’s cybersecurity initiatives.
+- Driving eﬀorts to reduce technical debt, optimise system performance, and enhance developer experience.
+- Instrumental in doubling team size, actively involved in recruitment and hiring processes.
+- Cloud-based (AWS & Azure) development with an emphasis on serverless components.
+
+### Software Engineer (FleetData)
 **BMW ZA IT Hub** 
 
 <i class="fa-solid fa-location-dot"></i> Pretoria, South Africa 
@@ -47,6 +61,10 @@ ment.
 - Prototype test platform enhanced the company’s core Electronic Warfare business.
 
 ## Education
+### M.Sc. Machine Learning and Artificial Intelligence
+**Stellenbosch University**
+<i class="fa-solid fa-calendar"></i> 2025 – Present
+
 ### B.Eng. Computer Engineering
 **University of Pretoria**
 
@@ -104,19 +122,16 @@ ment.
 ### Programming Languages & Frameworks
 - <i class="fa-solid fa-star"></i> Python
 - <i class="fa-solid fa-star"></i> NumPy & Pandas
-- <i class="fa-regular fa-star-half-stroke"></i> TensorFlow
+- <i class="fa-regular fa-star-half-stroke"></i> TensorFlow & Keras
 - <i class="fa-solid fa-star"></i> Rust
 - <i class="fa-solid fa-star"></i>Java, Kotlin & Groovy
 - <i class="fa-regular fa-star-half-stroke"></i> Springboot
 - <i class="fa-regular fa-star-half-stroke"></i> GraphQL
 - <i class="fa-solid fa-star"></i> PostgreSQL
 - <i class="fa-regular fa-star-half-stroke"></i> Docker & Kubernetes
-- <i class="fa-regular fa-star"></i>MQTT
 - <i class="fa-regular fa-star-half-stroke"></i> C & C++
-- <i class="fa-regular fa-star"></i>QT
 - <i class="fa-regular fa-star-half-stroke"></i> JavaScript & TypeScript
 - <i class="fa-regular fa-star"></i>NodeJS
-- <i class="fa-regular fa-star"></i>React & Redux
 - <i class="fa-regular fa-star"></i>Assembly
 - <i class="fa-regular fa-star-half-stroke"></i> VHDL & Verilog
 
