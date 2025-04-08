@@ -54,8 +54,7 @@ processes.
 <i class="fa-solid fa-location-dot"></i> Pretoria, South Africa 
 <i class="fa-solid fa-calendar"></i> Jan 2021 – Mar 2021
 
-- Part of small team of interns in Systems Engineering depart-
-ment.
+- Part of small team of interns in Systems Engineering department.
 - Designed and developed an Internet of Things solution from the ground up.
 - Developed and delivered a prototype test platform.
 - Prototype test platform enhanced the company’s core Electronic Warfare business.
@@ -64,6 +63,7 @@ ment.
 ### M.Sc. Machine Learning and Artificial Intelligence
 **Stellenbosch University**
 <i class="fa-solid fa-calendar"></i> 2025 – Present
+- Currently Enrolled
 
 ### B.Eng. Computer Engineering
 **University of Pretoria**
@@ -72,7 +72,6 @@ ment.
 - Cumulative Weighted Average: 72%
 - Module Distinctions: 21
 - **Final Year Project**: Design & Development of a Neural Network Accelerator for an FPGA with transfer to a Custom IC Layout.
-
 
 ### AS Levels
 **Cambridge International**
@@ -88,6 +87,7 @@ ment.
 ## Awards
 - World Robot Olympiad 2010, 3rd Nationally
 - World Robot Olympiad 2011, 1st Nationally and 3rd Internationally
+- Natural Science Olympiad 2013, 2nd Nationally
 - Dean’s Merit List 2018, University of Pretoria
 - Community Based Project 2019, Best New Project
 - Engineering Without Borders Design Challenge 2020, Finalist

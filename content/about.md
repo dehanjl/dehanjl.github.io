@@ -35,3 +35,5 @@ Driven by a lifelong passion for making computers go fast and solving complex pr
 - 🚗 Automotive
 - ✈️ Aerospace
 - ⚡️ Semiconductor
+
+_If you got this far, you might be interested my [Resume](@/resume.md) or feel free to [Contact Me](@/contact.md)_
