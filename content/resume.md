@@ -124,15 +124,15 @@ processes.
 - <i class="fa-solid fa-star"></i> NumPy & Pandas
 - <i class="fa-regular fa-star-half-stroke"></i> TensorFlow & Keras
 - <i class="fa-solid fa-star"></i> Rust
-- <i class="fa-solid fa-star"></i>Java, Kotlin & Groovy
+- <i class="fa-solid fa-star"></i> Java, Kotlin & Groovy
 - <i class="fa-regular fa-star-half-stroke"></i> Springboot
 - <i class="fa-regular fa-star-half-stroke"></i> GraphQL
 - <i class="fa-solid fa-star"></i> PostgreSQL
 - <i class="fa-regular fa-star-half-stroke"></i> Docker & Kubernetes
 - <i class="fa-regular fa-star-half-stroke"></i> C & C++
 - <i class="fa-regular fa-star-half-stroke"></i> JavaScript & TypeScript
-- <i class="fa-regular fa-star"></i>NodeJS
-- <i class="fa-regular fa-star"></i>Assembly
+- <i class="fa-regular fa-star"></i> NodeJS
+- <i class="fa-regular fa-star"></i> Assembly
 - <i class="fa-regular fa-star-half-stroke"></i> VHDL & Verilog
 
 ## Languages
