@@ -28,7 +28,7 @@ processes.
 
 <i class="fa-solid fa-location-dot"></i> Pretoria, South Africa 
 <i class="fa-solid fa-calendar"></i> Mar 2022 – Present
-- Part of the agile feature team working on the Connected Fleet Data product in the AI Data Analytics and Platforms department.
+- Part of the agile feature team working on the Connected Fleet Data product in the AI, Data Analytics and Platforms department.
 - Cloud-based (AWS) full-stack development.
 - Responsible for the product’s Cybersecurity matters.
 - Solutions architecting and leading workshops.
@@ -57,7 +57,7 @@ processes.
 - Part of small team of interns in Systems Engineering department.
 - Designed and developed an Internet of Things solution from the ground up.
 - Developed and delivered a prototype test platform.
-- Prototype test platform enhanced the company’s core Electronic Warfare business.
+- Prototype test platform enhancing the company’s core Electronic Warfare business.
 
 ## Education
 ### M.Sc. Machine Learning and Artificial Intelligence
@@ -81,6 +81,7 @@ processes.
 - Distinctions in all subjects.
 
 ## Certifications
+- <i class="fa-solid fa-calendar"></i> Jun 2024 - Certified Solutions Architect Associate, AWS
 - <i class="fa-solid fa-calendar"></i> Dec 2023 - Self Driving Car Engineer, Udacity
 - <i class="fa-solid fa-calendar"></i> Sep 2023 - Professional Scrum Product Owner II, Scrum.org
 
@@ -94,7 +95,6 @@ processes.
 - BMW ZA IT Hub AI Indaba Hackathon 2023, Finalist
 
 ## Other Activities
-
 - <i class="fa-solid fa-calendar"></i> 2015-2017 - E-Sports: Player Manager and Coach
 - <i class="fa-solid fa-calendar"></i> 2015-2017 - Sound Technician: Volunteer live production technician
 
