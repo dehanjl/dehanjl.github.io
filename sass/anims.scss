@@ -1,10 +1,12 @@
+@import 'variables';
+
 @keyframes fadeIn {
-    0% {
+    from {
         opacity: 0;
     }
 
-    100% {
-        opacity: 100%;
+    to {
+        opacity: 1;
     }
 }
 
@@ -14,7 +16,8 @@
     }
 
     to {
-        width: 100%;
+        /* Match the exact character count and add the left padding so the caret still ends at the text */
+        width: calc(14ch + var(--typing-left-pad, 0));
     }
 }
 
@@ -26,6 +29,6 @@
     }
 
     50% {
-        border-color: #dc8a78;
+        border-color: $rosewater;
     }
 }

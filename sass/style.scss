@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Helvetica&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import 'variables';
 @import 'code.scss';
 @import 'anims.scss';
 
-$base-color: #eff1f5;
-$text-color: #4c4f69;
-$rosewater: #dc8a78;
-$crust: #dce0e8;
-$muave: #8839ef;
+
+// Base reset
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
 body {
     background-color: $base-color;
@@ -15,18 +17,16 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: 'Anonymous Pro', 'Helvetica', sans-serif;
+    font-family: $font-family-base;
     margin: 0 auto;
 
-    // Default for wide screens
+    // Responsive max-width by aspect ratio
     max-width: 66%;
 
-    // When height >= width (portrait orientation)
     @media (max-aspect-ratio: 1/1) {
         max-width: 90%;
     }
 
-    // Gradual transition points
     @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 4/3) {
         max-width: 85%;
     }
@@ -60,17 +60,15 @@ a:hover {
 }
 
 .welcome {
-    animation: 3s ease-out 0s 1 fadeIn;
     opacity: 0;
-    animation-fill-mode: forwards;
+    animation: fadeIn 3s ease-out forwards;
 }
 
 .cta-container {
     margin-top: 2rem;
     text-align: center;
-    animation: 3s ease-out 0.5s 1 fadeIn;
     opacity: 0;
-    animation-fill-mode: forwards;
+    animation: fadeIn 3s ease-out 0.5s forwards;
 }
 
 .about-cta {
@@ -87,19 +85,22 @@ a:hover {
 
 .about-cta:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 4px 12px rgba($muave, 0.15);
+    box-shadow: 0 4px 12px rgba($mauve, 0.15);
     color: $text-color !important;
 }
 
 .typing h1 {
-    overflow: hidden; // Ensures the content is not revealed until the animation
-    border-right: .15em solid $rosewater; // The typwriter cursor
-    white-space: nowrap; // Keeps the content on a single line
-    margin: 0 auto; // Gives that scrolling effect as the typing happens
-    letter-spacing: .15em; // Adjust as needed
-    animation:
-        typing 3.5s steps(22, end),
-        blink-caret .75s step-end infinite;
+    /* Typewriter effect */
+    overflow: hidden;
+    border-right: .15em solid $rosewater;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0;
+    display: inline-block;
+    --typing-left-pad: 0.1ch;
+    padding-left: var(--typing-left-pad);
+    box-sizing: content-box;
+    animation: typing 3.5s steps(14, end), blink-caret .75s step-end infinite;
 }
 
 #footer {
@@ -118,5 +119,5 @@ a:hover {
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
-    align-content: flex-end
+    align-content: flex-end;
 }
