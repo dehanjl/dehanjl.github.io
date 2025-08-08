@@ -1,0 +1,1 @@
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes typing{from{width:0}to{width:calc(14ch + var(--typing-left-pad, 0))}}@keyframes blink-caret{from, to{border-color:rgba(0,0,0,0)}50%{border-color:#dc8a78}}
