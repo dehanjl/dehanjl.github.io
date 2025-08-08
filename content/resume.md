@@ -142,4 +142,4 @@ processes.
 
 ## References
 
-_References availbale on request, please [Contact Me](@/contact.md)._
+_References available on request, please [Contact Me](@/contact.md)._
