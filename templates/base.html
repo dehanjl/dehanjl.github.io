@@ -21,7 +21,6 @@
                     <a href="{{ get_url(path='/') | safe }}"{% if current_path == "/" %} aria-current="page"{% endif %}>Home</a>
                     <a href="{{ get_url(path='@/about.md') | safe }}"{% if current_path is containing("/about") %} aria-current="page"{% endif %}>About Me</a>
                     <a href="{{ get_url(path='@/resume.md') | safe }}"{% if current_path is containing("/resume") %} aria-current="page"{% endif %}>Resume</a>
-                    <a href="{{ get_url(path='@/blog/_index.md') | safe }}"{% if current_path is containing("/blog") %} aria-current="page"{% endif %}>Blog</a>
                     <a href="{{ get_url(path='@/contact.md') | safe }}"{% if current_path is containing("/contact") %} aria-current="page"{% endif %}>Contact</a>
                 </div>
             </nav>

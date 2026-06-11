@@ -10,11 +10,6 @@ compile_sass = true
 build_search_index = false
 generate_feeds = false
 
-# Enables { name = "tags" } taxonomy used by the blog.
-taxonomies = [
-    { name = "tags", feed = false },
-]
-
 [markdown]
 # Smart typography: turns -- into en-dashes, straight quotes into curly, etc.
 smart_punctuation = true
