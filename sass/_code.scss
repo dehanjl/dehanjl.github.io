@@ -41,17 +41,3 @@ code { font-family: inherit; }
   padding: 0.05em 0.4em;
   font-size: 0.9em;
 }
-
-// ── Zola CSS-class syntax highlighting → on-brand palette ─────
-// Requires class-based `[markdown.highlighting]` in config.toml. Unmatched
-// tokens fall back to Zola's generated giallo.css, so code is always legible.
-.z-comment                                   { color: $ink-faint; font-style: italic; }
-.z-string, .z-constant.z-character           { color: $copper; }
-.z-keyword, .z-storage                       { color: $accent; font-weight: 700; }
-.z-function, .z-entity.z-name.z-function     { color: $ink; font-weight: 700; }
-.z-constant, .z-constant.z-numeric           { color: $accent-deep; }
-.z-type, .z-entity.z-name.z-type, .z-support { color: $accent-deep; }
-.z-variable, .z-meta                         { color: $ink; }
-.z-tag, .z-entity.z-name.z-tag               { color: $accent; }
-.z-entity.z-other.z-attribute-name           { color: $copper; }
-.z-punctuation                               { color: $ink-soft; }

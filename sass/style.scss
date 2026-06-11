@@ -307,7 +307,7 @@ kbd {
   gap: 2.4rem;
   padding-bottom: 2rem;
 
-  section > .kicker { margin-bottom: 1rem; }
+  section > h2 { margin-bottom: 1rem; font-size: 1.5rem; }
 }
 
 .facts {
@@ -343,13 +343,9 @@ kbd {
     &:last-child { border-right: none; }
   }
   h3 {
-    font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: $ink-faint;
+    font-size: 1.15rem;
+    font-weight: 700;
     margin-bottom: 0.9rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid $accent;
   }
   ul { list-style: none; margin: 0; padding: 0; }
   li { padding: 0.3rem 0; font-size: 0.94rem; }
