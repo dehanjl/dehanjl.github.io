@@ -1,0 +1,3 @@
+{% macro post_num(index) %}
+{% if index < 10 %}00{{ index }}{% elif index < 100 %}0{{ index }}{% else %}{{ index }}{% endif %}
+{% endmacro post_num %}

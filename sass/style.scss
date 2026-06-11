@@ -147,25 +147,6 @@ main {
 }
 
 // ── Type primitives ──────────────────────────────────────────
-.kicker {
-  font-size: 0.76rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: $ink-faint;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-
-  &::before {
-    content: "";
-    width: 18px;
-    height: 2px;
-    background: $accent;
-    display: inline-block;
-  }
-  &.copper::before { background: $copper; }
-}
-
 h1, h2, h3, h4 { font-weight: 700; line-height: 1.08; margin: 0; }
 
 .page-title {
@@ -175,10 +156,6 @@ h1, h2, h3, h4 { font-weight: 700; line-height: 1.08; margin: 0; }
 }
 
 a { color: $accent; text-decoration: none; }
-a.inline {
-  border-bottom: 1.5px solid $line-soft;
-  &:hover { color: $accent-deep; border-bottom-color: $accent; }
-}
 
 // ── Prose (rendered Markdown) ────────────────────────────────
 .prose {
@@ -242,14 +219,7 @@ kbd {
     box-shadow: 5px 5px 0 $accent;
     color: $ink;
   }
-  &.copper:hover { box-shadow: 5px 5px 0 $copper; }
-}
-
-.panel {
-  border: 1.5px solid $line;
-  background: mix(#fff, $paper, 40%);
-  padding: 1.5rem;
-}
+  }
 
 // ── Home ─────────────────────────────────────────────────────
 .home-main {
@@ -418,6 +388,8 @@ kbd {
   padding: 2.6rem 0 1.8rem;
   border-bottom: 1.5px solid $line;
   margin-bottom: 2rem;
+  .page-title { margin-top: 1.2rem; }
+  .meta { margin-top: 1.1rem; }
 }
 .article-foot {
   margin-top: 3rem;
@@ -439,5 +411,4 @@ kbd {
   &:hover { color: $accent; }
 }
 
-// ── Utility ──────────────────────────────────────────────────
-.divider { height: 1.5px; background: $line; margin: 2.4rem 0; }
+

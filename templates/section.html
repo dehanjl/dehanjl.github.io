@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "_macros.html" as macros %}
 
 {% block title %}{{ section.title }} — dehanjl{% endblock title %}
 
@@ -16,7 +17,7 @@
         {% for page in section.pages %}
         <li class="post-item">
             <a href="{{ page.permalink | safe }}">
-                <span class="post-num">{% if loop.index < 10 %}00{{ loop.index }}{% elif loop.index < 100 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}</span>
+                <span class="post-num">{{ macros::post_num(index=loop.index) }}</span>
                 <div class="post-body">
                     <h2>{{ page.title }}</h2>
                     {% if page.description %}<p class="post-excerpt">{{ page.description }}</p>{% endif %}
