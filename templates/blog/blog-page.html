@@ -7,7 +7,7 @@
     <article>
         <header class="article-head">
             <a class="back-link" href="{{ get_url(path='@/blog/_index.md') | safe }}">
-                <span aria-hidden="true">←</span> All posts
+                <span aria-hidden="true"><- </span> All posts
             </a>
             <h1 class="page-title">{{ page.title }}</h1>
             <div class="meta">
@@ -29,11 +29,11 @@
 
         <footer class="article-foot">
             <a class="back-link" href="{{ get_url(path='@/blog/_index.md') | safe }}">
-                <span aria-hidden="true">←</span> Back to all posts
+                <span aria-hidden="true"><- </span> Back to all posts
             </a>
             {% if page.earlier %}
             <a class="back-link" href="{{ page.earlier.permalink | safe }}">
-                Next: {{ page.earlier.title }} <span aria-hidden="true">→</span>
+                Next: {{ page.earlier.title }} <span aria-hidden="true">-></span>
             </a>
             {% endif %}
         </footer>

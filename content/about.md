@@ -4,7 +4,7 @@ template = "about.html"
 
 [extra]
 greeting = "Greetings 👋, I'm Dehan"
-lede = "Computer engineer, perpetual learner, and someone who genuinely enjoys making computers go fast."
+# lede = "Computer engineer, perpetual learner, and someone who genuinely enjoys making computers go fast."
 closing = "If you got this far, you might be interested in my [Resume](@/resume.md) or feel free to [Contact Me](@/contact.md)."
 
 [[extra.quick_facts]]
@@ -17,7 +17,7 @@ text = "BEng Computer Engineering graduate from the University of Pretoria (TUKS
 
 [[extra.quick_facts]]
 icon = "💼"
-text = "Currently working as a Software Engineer 👨🏻‍💻 at the **BMW ZA IT Hub** 🤖"
+text = "Currently working as an AI Engineer 👨🏻‍💻 at the **Theodore AI** 🤖"
 
 [[extra.quick_facts]]
 icon = "🌱"
