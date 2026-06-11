@@ -1,9 +1,42 @@
 {% extends "base.html" %}
 
+{% block title %}{{ page.title }} — dehanjl{% endblock title %}
+
 {% block content %}
-<h1 class="title">
-    {{ page.title }}
-</h1>
-<p class="subtitle"><strong>{{ page.date }}</strong></p>
-{{ page.content | safe }}
+<div class="wrap">
+    <article>
+        <header class="article-head">
+            <a class="back-link" href="{{ get_url(path='@/blog/_index.md') | safe }}">
+                <span aria-hidden="true">←</span> All posts
+            </a>
+            <h1 class="page-title" style="margin-top:1.2rem;">{{ page.title }}</h1>
+            <div class="meta" style="margin-top:1.1rem;">
+                <span>{{ page.date | date(format="%Y · %m · %d") }}</span>
+                <span class="sep">/</span>
+                <span>{{ page.reading_time }} min read</span>
+                {% if page.taxonomies.tags %}
+                <span class="sep">/</span>
+                <span class="cluster">
+                    {% for tag in page.taxonomies.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+                </span>
+                {% endif %}
+            </div>
+        </header>
+
+        <div class="prose">
+            {{ page.content | safe }}
+        </div>
+
+        <footer class="article-foot">
+            <a class="back-link" href="{{ get_url(path='@/blog/_index.md') | safe }}">
+                <span aria-hidden="true">←</span> Back to all posts
+            </a>
+            {% if page.earlier %}
+            <a class="back-link" href="{{ page.earlier.permalink | safe }}">
+                Next: {{ page.earlier.title }} <span aria-hidden="true">→</span>
+            </a>
+            {% endif %}
+        </footer>
+    </article>
+</div>
 {% endblock content %}

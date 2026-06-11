@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}{{ taxonomy.name | title }} — dehanjl{% endblock title %}
+
+{% block content %}
+<div class="wrap">
+    <header class="page-head">
+        <p class="kicker">Taxonomy</p>
+        <h1 class="page-title">{{ taxonomy.name | title }}</h1>
+    </header>
+
+    <div class="cluster">
+        {% for term in terms %}
+        <a class="tag" href="{{ term.permalink | safe }}">{{ term.name }} · {{ term.page_count }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

@@ -1,20 +1,16 @@
 {% extends "base.html" %}
 
-{% block title %}{{ section.title }} — dehanjl{% endblock title %}
+{% block title %}{{ term.name }} — dehanjl{% endblock title %}
 
 {% block content %}
 <div class="wrap">
     <header class="page-head">
-        <p class="kicker">{{ section.title }}</p>
-        <h1 class="page-title">{{ section.title }}</h1>
-        {% if section.description %}<p class="lede">{{ section.description }}</p>{% endif %}
+        <p class="kicker">Tag</p>
+        <h1 class="page-title">{{ term.name }}</h1>
     </header>
 
-    {% if section.content %}<div class="prose">{{ section.content | safe }}</div>{% endif %}
-
-    {% if section.pages %}
     <ul class="post-list">
-        {% for page in section.pages %}
+        {% for page in term.pages %}
         <li class="post-item">
             <a href="{{ page.permalink | safe }}">
                 <span class="post-num">{% if loop.index < 10 %}00{{ loop.index }}{% elif loop.index < 100 %}0{{ loop.index }}{% else %}{{ loop.index }}{% endif %}</span>
@@ -27,6 +23,5 @@
         </li>
         {% endfor %}
     </ul>
-    {% endif %}
 </div>
 {% endblock content %}

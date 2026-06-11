@@ -1,0 +1,57 @@
+@import 'variables';
+
+// ── Code blocks ──────────────────────────────────────────────
+pre {
+  background: $panel;
+  border: 1.5px solid $line;
+  color: $ink;
+  padding: 1.1rem 1.2rem;
+  overflow: auto;
+  font-size: 0.86rem;
+  line-height: 1.55;
+  margin: 1.6rem 0;
+}
+
+pre[data-linenos] { padding: 1.1rem 0; }
+
+pre table {
+  width: 100%;
+  border-collapse: collapse;
+}
+pre table td { padding: 0; }
+pre table td:nth-of-type(1) {
+  text-align: center;
+  user-select: none;
+  color: $ink-faint;
+  padding-right: 1rem;
+}
+
+// line-highlight (Zola emits <mark>)
+pre mark {
+  background: rgba($accent, 0.12);
+  color: inherit;
+  display: block;
+}
+
+code { font-family: inherit; }
+
+:not(pre) > code {
+  background: $panel;
+  border: 1px solid $line-soft;
+  padding: 0.05em 0.4em;
+  font-size: 0.9em;
+}
+
+// ── Zola CSS-class syntax highlighting → on-brand palette ─────
+// Requires class-based `[markdown.highlighting]` in config.toml. Unmatched
+// tokens fall back to Zola's generated giallo.css, so code is always legible.
+.z-comment                                   { color: $ink-faint; font-style: italic; }
+.z-string, .z-constant.z-character           { color: $copper; }
+.z-keyword, .z-storage                       { color: $accent; font-weight: 700; }
+.z-function, .z-entity.z-name.z-function     { color: $ink; font-weight: 700; }
+.z-constant, .z-constant.z-numeric           { color: $accent-deep; }
+.z-type, .z-entity.z-name.z-type, .z-support { color: $accent-deep; }
+.z-variable, .z-meta                         { color: $ink; }
+.z-tag, .z-entity.z-name.z-tag               { color: $accent; }
+.z-entity.z-other.z-attribute-name           { color: $copper; }
+.z-punctuation                               { color: $ink-soft; }

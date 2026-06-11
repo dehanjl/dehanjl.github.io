@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} — dehanjl{% endblock title %}
+
+{% block content %}
+<div class="wrap">
+    <header class="page-head">
+        <p class="kicker">About</p>
+        <h1 class="page-title">{{ page.extra.greeting | default(value=page.title) }}</h1>
+        {% if page.extra.lede %}<p class="lede">{{ page.extra.lede }}</p>{% endif %}
+    </header>
+
+    <div class="about-grid">
+        {% if page.extra.quick_facts %}
+        <section>
+            <p class="kicker copper">Quick Facts</p>
+            <ul class="facts">
+                {% for fact in page.extra.quick_facts %}
+                <li>
+                    <span class="ic">{{ fact.icon }}</span>
+                    <span>{{ fact.text | markdown(inline=true) | safe }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        <section class="prose">
+            <p class="kicker">Blurb</p>
+            <div class="blurb">{{ page.content | safe }}</div>
+        </section>
+
+        {% if page.extra.interests %}
+        <section>
+            <p class="kicker">Interests</p>
+            <div class="interests">
+                {% for col in page.extra.interests %}
+                <div class="col">
+                    <h3>{{ col.heading }}</h3>
+                    <ul>
+                        {% for item in col.items %}<li>{{ item }}</li>{% endfor %}
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        {% if page.extra.closing %}
+        <p class="prose closing"><em>{{ page.extra.closing | markdown(inline=true) | safe }}</em></p>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

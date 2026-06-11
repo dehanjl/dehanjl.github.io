@@ -1,123 +1,443 @@
+// ═════════════════════════════════════════════════════════════
+// dehanjl.me — restrained brutalist theme
+// Off-white paper · space-gray ink & grid · burnt titanium blue
+// Anonymous Pro throughout. Sharp edges. Hairline structure.
+// ═════════════════════════════════════════════════════════════
+
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import 'variables';
-@import 'code.scss';
-@import 'anims.scss';
+@import 'code';
 
-
-// Base reset
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+// ── Reset ────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
 
 body {
-    background-color: $base-color;
-    color: $text-color;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: $font-family-base;
-    margin: 0 auto;
-
-    // Responsive max-width by aspect ratio
-    max-width: 66%;
-
-    @media (max-aspect-ratio: 1/1) {
-        max-width: 90%;
-    }
-
-    @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 4/3) {
-        max-width: 85%;
-    }
-
-    @media (min-aspect-ratio: 4/3) and (max-aspect-ratio: 3/2) {
-        max-width: 80%;
-    }
-
-    @media (min-aspect-ratio: 3/2) and (max-aspect-ratio: 16/9) {
-        max-width: 73%;
-    }
+  margin: 0;
+  min-height: 100vh;
+  background-color: $paper;
+  color: $ink;
+  font-family: $font-mono;
+  font-size: 16px;
+  line-height: 1.62;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-a,
-a:visited {
-    color: inherit;
+// graph-paper grid — fixed viewport texture
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient($grid 1px, transparent 1px),
+    linear-gradient(90deg, $grid 1px, transparent 1px);
+  background-size: $grid-size $grid-size;
 }
 
-a:hover {
-    color: darken($text-color, 20%);
+// ── Layout shell ─────────────────────────────────────────────
+.wrap {
+  width: 100%;
+  max-width: $maxw;
+  margin: 0 auto;
+  padding-left: $pad;
+  padding-right: $pad;
 }
 
-.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: 100%;
-    max-width: 600px;
+main {
+  flex: 1 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.welcome {
-    opacity: 0;
-    animation: fadeIn 3s ease-out forwards;
-}
+.topbar-accent { height: 4px; background: $accent; }
 
-.cta-container {
-    margin-top: 2rem;
-    text-align: center;
-    opacity: 0;
-    animation: fadeIn 3s ease-out 0.5s forwards;
+// ── Header / nav ─────────────────────────────────────────────
+#header {
+  border-bottom: 1.5px solid $line;
+  background: rgba($paper, 0.88);
+  backdrop-filter: blur(3px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
+#navbar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  flex-wrap: wrap;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: $ink;
+  font-size: 1.02rem;
 
-.about-cta {
+  .mark {
+    width: 12px;
+    height: 12px;
+    background: $accent;
     display: inline-block;
-    padding: 0.8rem 1.5rem;
-    background-color: $crust;
-    color: $text-color !important;
+  }
+  &:hover { color: $ink; }
+  &:hover .mark { background: $copper; }
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 1.1rem;
+  align-items: baseline;
+
+  a {
     text-decoration: none;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.about-cta:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 4px 12px rgba($mauve, 0.15);
-    color: $text-color !important;
-}
-
-.typing h1 {
-    /* Typewriter effect */
-    overflow: hidden;
-    border-right: .15em solid $rosewater;
+    color: $ink-soft;
+    font-size: 0.86rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: 0;
-    display: inline-block;
-    --typing-left-pad: 0.1ch;
-    padding-left: var(--typing-left-pad);
-    box-sizing: content-box;
-    animation: typing 3.5s steps(14, end), blink-caret .75s step-end infinite;
+    padding: 2px 0;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+
+    &:hover { color: $ink; border-bottom-color: $line-soft; }
+    &[aria-current="page"],
+    &.active { color: $ink; border-bottom-color: $accent; }
+  }
 }
 
+// ── Footer ───────────────────────────────────────────────────
 #footer {
+  flex-shrink: 0;
+  border-top: 1.5px solid $line;
+  margin-top: 4rem;
+
+  .wrap {
     display: flex;
     justify-content: space-between;
-    margin-top: auto;
-    position: sticky;
-    font-size: 0.8rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 0.78rem;
+    color: $ink-faint;
+    letter-spacing: 0.03em;
+  }
+  a {
+    color: $ink-soft;
+    text-decoration: none;
+    border-bottom: 1px solid $line-soft;
+    &:hover { color: $accent; }
+  }
 }
 
-#navbar {
-    padding: 1rem 0 0 0;
-    display: flex;
-    flex-direction: row;
-    gap: .4rem;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: center;
-    align-content: flex-end;
+// ── Type primitives ──────────────────────────────────────────
+.kicker {
+  font-size: 0.76rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: $ink-faint;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  &::before {
+    content: "";
+    width: 18px;
+    height: 2px;
+    background: $accent;
+    display: inline-block;
+  }
+  &.copper::before { background: $copper; }
 }
+
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.08; margin: 0; }
+
+.page-title {
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+a { color: $accent; text-decoration: none; }
+a.inline {
+  border-bottom: 1.5px solid $line-soft;
+  &:hover { color: $accent-deep; border-bottom-color: $accent; }
+}
+
+// ── Prose (rendered Markdown) ────────────────────────────────
+.prose {
+  font-size: 1rem;
+  max-width: 68ch;
+
+  p { margin: 0 0 1.15rem; color: $ink; }
+  h2 {
+    font-size: 1.5rem;
+    margin: 2.4rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1.5px solid $line-soft;
+  }
+  h3 { font-size: 1.15rem; margin: 1.8rem 0 0.7rem; }
+  ul { padding-left: 1.2rem; margin: 0 0 1.2rem; }
+  li { margin: 0.35rem 0; }
+  strong { font-weight: 700; }
+  em { color: $ink-soft; }
+  a {
+    color: $accent;
+    border-bottom: 1.5px solid $line-soft;
+    &:hover { color: $accent-deep; border-bottom-color: $accent; }
+  }
+}
+
+blockquote {
+  margin: 1.6rem 0;
+  padding: 0.4rem 0 0.4rem 1.4rem;
+  border-left: 3px solid $copper;
+  color: $ink-soft;
+  font-style: italic;
+}
+
+kbd {
+  font-family: inherit;
+  border: 1px solid $line;
+  border-bottom-width: 2px;
+  padding: 0.05em 0.45em;
+  font-size: 0.85em;
+  background: $panel;
+}
+
+// ── Buttons / panels ─────────────────────────────────────────
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 0.8rem 1.3rem;
+  border: 1.5px solid $line;
+  background: $paper;
+  color: $ink;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+
+  &:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 5px 5px 0 $accent;
+    color: $ink;
+  }
+  &.copper:hover { box-shadow: 5px 5px 0 $copper; }
+}
+
+.panel {
+  border: 1.5px solid $line;
+  background: mix(#fff, $paper, 40%);
+  padding: 1.5rem;
+}
+
+// ── Home ─────────────────────────────────────────────────────
+.home-main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 0 6rem;
+  gap: 2rem;
+}
+.home-title {
+  font-size: clamp(2.1rem, 6vw, 3.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 16ch;
+}
+
+// ── Generic page header ──────────────────────────────────────
+.page-head {
+  padding: 3rem 0 1.6rem;
+  .kicker { margin-bottom: 1rem; }
+  .lede { color: $ink-soft; margin-top: 1rem; max-width: 60ch; }
+}
+
+// ── Meta row ─────────────────────────────────────────────────
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.1rem;
+  align-items: center;
+  font-size: 0.82rem;
+  color: $ink-faint;
+  letter-spacing: 0.04em;
+
+  > span { white-space: nowrap; }
+  .sep { color: $line-soft; }
+}
+
+.tag {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: 1px solid $line-soft;
+  padding: 0.18em 0.6em;
+  color: $ink-soft;
+}
+
+.cluster { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
+
+// ── About ────────────────────────────────────────────────────
+.about-grid {
+  display: grid;
+  gap: 2.4rem;
+  padding-bottom: 2rem;
+
+  section > .kicker { margin-bottom: 1rem; }
+}
+
+.facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.1rem;
+
+  li {
+    display: grid;
+    grid-template-columns: 1.8rem 1fr;
+    gap: 0.7rem;
+    align-items: start;
+    padding: 0.65rem 0;
+    border-bottom: 1px solid $line-soft;
+
+    .ic { font-size: 1.05rem; line-height: 1.4; }
+    a { color: $accent; border-bottom: 1.5px solid $line-soft; }
+    a:hover { color: $accent-deep; border-bottom-color: $accent; }
+    strong { font-weight: 700; }
+  }
+}
+
+.interests {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1.5px solid $line;
+
+  .col {
+    padding: 1.4rem;
+    border-right: 1.5px solid $line;
+    &:last-child { border-right: none; }
+  }
+  h3 {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: $ink-faint;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $accent;
+  }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { padding: 0.3rem 0; font-size: 0.94rem; }
+}
+
+@media (max-width: 720px) {
+  .interests {
+    grid-template-columns: 1fr;
+    .col {
+      border-right: none;
+      border-bottom: 1.5px solid $line;
+      &:last-child { border-bottom: none; }
+    }
+  }
+}
+
+.closing { max-width: 68ch; }
+
+// ── Blog list ────────────────────────────────────────────────
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1.5px solid $line;
+}
+.post-item {
+  border-bottom: 1.5px solid $line;
+
+  a {
+    display: grid;
+    grid-template-columns: 3.2rem 1fr auto;
+    gap: 1.2rem;
+    align-items: baseline;
+    padding: 1.5rem 0.6rem;
+    color: inherit;
+    transition: background 0.15s, padding-left 0.15s;
+
+    &:hover { background: $panel; padding-left: 1.1rem; }
+    &:hover .post-body h2 { color: $accent; }
+  }
+}
+.post-num { font-size: 0.8rem; color: $ink-faint; letter-spacing: 0.05em; }
+.post-body h2 {
+  font-size: 1.35rem;
+  margin-bottom: 0.5rem;
+  transition: color 0.15s;
+}
+.post-excerpt {
+  color: $ink-soft;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  margin: 0.5rem 0 1rem;
+  max-width: 62ch;
+}
+.post-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.post-date {
+  font-size: 0.82rem;
+  color: $ink-faint;
+  white-space: nowrap;
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .post-item a { grid-template-columns: 1fr; gap: 0.5rem; }
+  .post-date { text-align: left; }
+}
+
+// ── Article ──────────────────────────────────────────────────
+.article-head {
+  padding: 2.6rem 0 1.8rem;
+  border-bottom: 1.5px solid $line;
+  margin-bottom: 2rem;
+}
+.article-foot {
+  margin-top: 3rem;
+  padding-top: 1.6rem;
+  border-top: 1.5px solid $line;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  color: $ink-soft;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  &:hover { color: $accent; }
+}
+
+// ── Utility ──────────────────────────────────────────────────
+.divider { height: 1.5px; background: $line; margin: 2.4rem 0; }
