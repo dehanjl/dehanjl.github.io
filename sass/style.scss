@@ -202,24 +202,31 @@ kbd {
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 0.6rem;
   font-family: inherit;
   font-size: 1rem;
   font-weight: 700;
   padding: 0.8rem 1.3rem;
-  border: 1.5px solid $line;
+  border: 1.5px solid $accent;
   background: $paper;
   color: $ink;
   cursor: pointer;
   text-decoration: none;
   transition: transform 0.16s ease, box-shadow 0.16s ease;
+  max-width: 90%;
 
   &:hover {
     transform: translate(-3px, -3px);
     box-shadow: 5px 5px 0 $accent;
     color: $ink;
   }
-  }
+}
+
+.post-arrow {
+  flex-shrink: 0;
+}
 
 // ── Home ─────────────────────────────────────────────────────
 .home-main {
