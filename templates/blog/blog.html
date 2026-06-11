@@ -1,10 +1,36 @@
 {% extends "base.html" %}
+{% import "_macros.html" as macros %}
+
+{% block title %}{{ section.title }} — dehanjl{% endblock title %}
 
 {% block content %}
-<h1 class="title">
-    {{ section.title }}
-</h1>
-<div class="center typing">
-    <h1>Coming Soon...</h1>
+<div class="wrap">
+    <header class="page-head">
+        <h1 class="page-title">{{ section.title }}</h1>
+        {% if section.description %}<p class="lede">{{ section.description }}</p>{% endif %}
+    </header>
+
+    <ul class="post-list">
+        {% for page in section.pages %}
+        <li class="post-item">
+            <a href="{{ page.permalink | safe }}">
+                <span class="post-num">{{ macros::post_num(index=loop.index) }}</span>
+                <div class="post-body">
+                    <h2>{{ page.title }}</h2>
+                    {% if page.description %}<p class="post-excerpt">{{ page.description }}</p>{% endif %}
+                    {% if page.taxonomies.tags %}
+                    <div class="post-tags">
+                        {% for tag in page.taxonomies.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+                <span class="post-date">
+                    {{ page.date | date(format="%Y · %m · %d") }}<br>
+                    <span style="opacity:.7">{{ page.reading_time }} min</span>
+                </span>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock content %}

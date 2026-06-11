@@ -1,9 +1,31 @@
-// Design tokens
-$base-color: #eff1f5;
-$text-color: #4c4f69;
-$rosewater: #dc8a78;
-$crust: #dce0e8;
-$mauve: #8839ef;
+// ─────────────────────────────────────────────────────────────
+// Design tokens — restrained brutalist refresh
+// Off-white paper · space-gray ink & grid · burnt titanium blue
+// ─────────────────────────────────────────────────────────────
 
-// Typography
-$font-family-base: 'Anonymous Pro', 'Helvetica', 'Arial', sans-serif;
+// Surfaces
+$paper:       #f3f3f2;   // page background
+$panel:       #e9e9e7;   // recessed surfaces (code, hover rows)
+
+// Ink
+$ink:         #2b2e34;   // primary text — deep space gray
+$ink-soft:    #62666e;   // secondary text
+$ink-faint:   #8a8e95;   // meta / muted
+
+// Structure
+$line:        #3e4249;   // structural borders — space gray
+$line-soft:   rgba(62, 66, 73, 0.22);
+$grid:        rgba(62, 66, 73, 0.05);
+$grid-size:   32px;
+
+// Accents
+$accent:      #35586f;   // burnt titanium blue (primary)
+$accent-deep: #26404f;   // hover / pressed
+$copper:      #a96a37;   // rare emphasis only
+
+// Layout
+$maxw:        900px;
+$pad:         clamp(20px, 5vw, 40px);
+
+// Type
+$font-mono:   'Anonymous Pro', ui-monospace, 'SFMono-Regular', Menlo, monospace;

@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dehanjl</title>
+    <title>{% block title %}dehanjl{% endblock title %}</title>
+    <link rel="stylesheet" href="{{ get_url(path='giallo.css') | safe }}">
     <link rel="stylesheet" href="{{ get_url(path='style.css') | safe }}">
     <script src="https://kit.fontawesome.com/b9b10e6172.js" crossorigin="anonymous"></script>
     <link rel="icon" href="{{ get_url(path='icon.svg') | safe }}" type="image/svg+xml">
@@ -12,29 +13,34 @@
 
 <body>
     <header id="header">
-        <nav id="navbar">
-            <a href="{{ get_url(path='/') | safe }}">Home</a>
-            <a href="{{ get_url(path='@/about.md') | safe }}">About Me</a>
-            <a href="{{ get_url(path='@/resume.md') | safe }}">Resume</a>
-            <a href="{{ get_url(path='@/blog/_index.md') | safe }}">Blog</a>
-            <a href="{{ get_url(path='@/contact.md') | safe }}">Contact</a>
-        </nav>
+        <div class="topbar-accent"></div>
+        <div class="wrap">
+            <nav id="navbar">
+                <a class="brand" href="{{ get_url(path='/') | safe }}"><span class="mark"></span>dehanjl</a>
+                <div class="nav-links">
+                    <a href="{{ get_url(path='/') | safe }}"{% if current_path == "/" %} aria-current="page"{% endif %}>Home</a>
+                    <a href="{{ get_url(path='@/about.md') | safe }}"{% if current_path is containing("/about") %} aria-current="page"{% endif %}>About Me</a>
+                    <a href="{{ get_url(path='@/resume.md') | safe }}"{% if current_path is containing("/resume") %} aria-current="page"{% endif %}>Resume</a>
+                    <a href="{{ get_url(path='@/contact.md') | safe }}"{% if current_path is containing("/contact") %} aria-current="page"{% endif %}>Contact</a>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <main>
-        {% block content %}
-        {% endblock %}
+        {% block content %}{% endblock content %}
     </main>
 
     <footer id="footer">
-        <p>Copyright © Dehan J. Lamprecht {{ now() | date(format="%Y") }}.</p>
-        <p>Powered by <a href="https://www.getzola.org">Zola</a></p>
+        <div class="wrap">
+            <p>Copyright © Dehan J. Lamprecht {{ now() | date(format="%Y") }}.</p>
+            <p>Powered by <a href="https://www.getzola.org">Zola</a></p>
+        </div>
     </footer>
 
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
-        data-cf-beacon='{"token": "9e7ee90dc4704f39867b8217a4ff18fb"}'>
-        </script>
+        data-cf-beacon='{"token": "9e7ee90dc4704f39867b8217a4ff18fb"}'></script>
     <!-- End Cloudflare Web Analytics -->
 </body>
 
