@@ -10,7 +10,10 @@
 
 // ── Reset ────────────────────────────────────────────────────
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { 
+  -webkit-text-size-adjust: 100%;
+  overflow-y: scroll;
+}
 
 body {
   margin: 0;
@@ -26,17 +29,18 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-// graph-paper grid — fixed viewport texture
+// hexagonal grid — fixed viewport texture
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image:
-    linear-gradient($grid 1px, transparent 1px),
-    linear-gradient(90deg, $grid 1px, transparent 1px);
-  background-size: $grid-size $grid-size;
+  background-color: $grid;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 55.4256' preserveAspectRatio='none'%3E%3Cpath d='M16 0 V9.2376 L32 18.4752 V36.9504 L16 46.188 V55.4256 M16 46.188 L0 36.9504 V18.4752 L16 9.2376' fill='none' stroke='black' stroke-width='1' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 55.4256' preserveAspectRatio='none'%3E%3Cpath d='M16 0 V9.2376 L32 18.4752 V36.9504 L16 46.188 V55.4256 M16 46.188 L0 36.9504 V18.4752 L16 9.2376' fill='none' stroke='black' stroke-width='1' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  -webkit-mask-size: $grid-size calc(#{$grid-size} * 1.73205);
+  mask-size: $grid-size calc(#{$grid-size} * 1.73205);
 }
 
 // ── Layout shell ─────────────────────────────────────────────
@@ -59,7 +63,7 @@ main {
 
 // ── Header / nav ─────────────────────────────────────────────
 #header {
-  border-bottom: 1.5px solid $line;
+  border-bottom: 1.5px solid $accent;
   background: rgba($paper, 0.88);
   backdrop-filter: blur(3px);
   position: sticky;
@@ -120,7 +124,7 @@ main {
 // ── Footer ───────────────────────────────────────────────────
 #footer {
   flex-shrink: 0;
-  border-top: 1.5px solid $line;
+  border-top: 1.5px solid $accent;
   margin-top: 4rem;
 
   .wrap {
@@ -179,7 +183,7 @@ a.inline {
 // ── Prose (rendered Markdown) ────────────────────────────────
 .prose {
   font-size: 1rem;
-  max-width: 68ch;
+  max-width: 100%;
 
   p { margin: 0 0 1.15rem; color: $ink; }
   h2 {
@@ -262,14 +266,14 @@ kbd {
   font-size: clamp(2.1rem, 6vw, 3.6rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
-  max-width: 16ch;
+  max-width: 100%;
 }
 
 // ── Generic page header ──────────────────────────────────────
 .page-head {
   padding: 3rem 0 1.6rem;
   .kicker { margin-bottom: 1rem; }
-  .lede { color: $ink-soft; margin-top: 1rem; max-width: 60ch; }
+  .lede { color: $ink-soft; margin-top: 1rem; max-width: 100%; }
 }
 
 // ── Meta row ─────────────────────────────────────────────────
@@ -362,7 +366,7 @@ kbd {
   }
 }
 
-.closing { max-width: 68ch; }
+.closing { max-width: 100%; }
 
 // ── Blog list ────────────────────────────────────────────────
 .post-list {
@@ -398,7 +402,7 @@ kbd {
   font-size: 0.92rem;
   line-height: 1.55;
   margin: 0.5rem 0 1rem;
-  max-width: 62ch;
+  max-width: 100%;
 }
 .post-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .post-date {
